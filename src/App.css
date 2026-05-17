@@ -1,0 +1,17 @@
+.titolo {
+  color: rgb(46, 46, 92);
+  font-size: 40px;
+}
+
+.etichetta {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.inputTesto {
+  padding: 10px;
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 8px;
+}
