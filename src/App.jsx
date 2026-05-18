@@ -1,18 +1,17 @@
 import './App.css'
+import Navbar from './components/Navbar'
+import Header from './components/Header'
+import List from './components/List'
 
 function App() {
+  const names = ['Alice', 'Marco', 'Giulia', 'Luca']
+
   return (
-    <div>
-      <h1 className="titolo">Esercizio React</h1>
-
-      <label className="etichetta">Nome:</label>
-
-      <input
-        type="text"
-        className="inputTesto"
-        placeholder="Inserisci il tuo nome"
-      />
-    </div>
+    <>
+      <Navbar />
+      <Header />
+      <List names={names} />
+    </>
   )
 }
 

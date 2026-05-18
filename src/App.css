@@ -1,17 +1,35 @@
-.titolo {
-  color: rgb(46, 46, 92);
-  font-size: 40px;
+body {
+  font-family: 'Poppins', sans-serif;
 }
 
-.etichetta {
-  display: block;
-  margin-bottom: 10px;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #411717;
+  padding: 15px;
+}
+
+.navbar a {
+  color: white;
+  margin-right: 20px;
+  text-decoration: none;
   font-weight: bold;
 }
 
-.inputTesto {
-  padding: 10px;
-  font-size: 20px;
-  border: 2px solid black;
-  border-radius: 8px;
+.header {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.titolo {
+  color: rgb(161, 45, 45);
+  font-size: 36px;
+}
+
+.lista {
+  width: 300px;
+  margin: 30px auto;
+  font-size: 22px;
 }
