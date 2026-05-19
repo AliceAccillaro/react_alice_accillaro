@@ -6,11 +6,15 @@ function Counter() {
 
 
     function incrementa() {
-        setCount(count + 1);
+
+        setCount((prev) => prev + 1);
+
     }
 
     function decrementa() {
-        setCount(count - 1);
+
+        setCount((prev) => prev - 1);
+
     }
 
 
