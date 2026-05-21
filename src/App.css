@@ -137,3 +137,43 @@ form button{
 
     border-radius: 15px;
 }
+
+/* LOADING DATA */
+
+.loading-data{
+    width: 500px;
+
+    margin: 50px auto;
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 20px;
+}
+
+.loading-data button{
+    margin: 20px 0;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.loading-data ul{
+    list-style: none;
+}
+
+.loading-data li{
+    background-color: #f4f4f4;
+
+    padding: 15px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+}

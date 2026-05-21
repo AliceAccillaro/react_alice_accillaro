@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import List from "./components/List";
 import Counter from "./components/Counter";
 import Form from "./components/Form";
+import LoadingData from "./components/LoadingData";
 
 function App() {
 
@@ -37,6 +38,8 @@ function App() {
 
                 <Form.Button />
             </Form>
+
+            <LoadingData />
         </>
 
     );
