@@ -20,8 +20,8 @@ body {
 }
 
 .header {
-  margin-top: 80px;
-  text-align: center;
+  height: auto;
+  padding: 40px 0;
 }
 
 .titolo {
@@ -29,10 +29,11 @@ body {
   font-size: 36px;
 }
 
-.lista {
-  width: 300px;
-  margin: 30px auto;
-  font-size: 22px;
+.list {
+   width: 300px;
+   margin: 30px auto;
+   margin-bottom: 80px;
+   font-size: 22px;
 }
 
 *{
@@ -176,4 +177,25 @@ form button{
     margin-bottom: 10px;
 
     border-radius: 10px;
+}
+
+/* PAGE */ 
+
+.page{
+    padding: 40px;
+}
+
+.posts-list{
+    list-style: none;
+
+    margin-top: 30px;
+}
+
+.posts-list li{
+    margin-bottom: 15px;
+}
+
+.posts-list a{
+    text-decoration: none;
+    color: black;
 }

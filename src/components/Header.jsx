@@ -1,7 +1,7 @@
 function Header() {
   return (
     <header className="header">
-      <h1 className="titolo">Benvenuto nel mio progetto React</h1>
+      <h1 className="titolo">React</h1>
     </header>
   )
 }

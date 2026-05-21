@@ -1,49 +1,25 @@
-import './App.css'
+import "./App.css";
 
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import List from "./components/List";
-import Counter from "./components/Counter";
-import Form from "./components/Form";
-import LoadingData from "./components/LoadingData";
+
+import Home from "./pages/Home";
+import Posts from "./pages/Posts";
+import PostDetail from "./pages/PostDetail";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-
     return (
-
-        <>
+        <BrowserRouter>
             <Navbar />
 
-            <Header />
-
-            <List>
-                <List.Item name="Alice" />
-                <List.Item name="Marco" />
-                <List.Item name="Giulia" />
-                <List.Item name="Luca" />
-            </List>
-
-            <Counter />
-
-            <Form>
-                <Form.Input
-                    type="text"
-                    placeholder="Inserisci nome"
-                />
-
-                <Form.Input
-                    type="email"
-                    placeholder="Inserisci email"
-                />
-
-                <Form.Button />
-            </Form>
-
-            <LoadingData />
-        </>
-
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/posts" element={<Posts />} />
+                <Route path="/posts/:id" element={<PostDetail />} />
+            </Routes>
+        </BrowserRouter>
     );
-
 }
 
 export default App;
