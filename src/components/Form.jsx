@@ -1,24 +1,8 @@
-import { useState } from "react";
-
-function Form() {
-
-    const [nome, setNome] = useState("");
-    const [email, setEmail] = useState("");
-
-    const [userData, setUserData] = useState(null);
-
+function Form({ children }) {
 
     function handleSubmit(e) {
-
         e.preventDefault();
-
-        setUserData({
-            nome,
-            email
-        });
-
     }
-
 
     return (
 
@@ -27,52 +11,40 @@ function Form() {
             <h2>Form Utente</h2>
 
             <form onSubmit={handleSubmit}>
-
-                <input
-                    type="text"
-                    placeholder="Inserisci nome"
-                    value={nome}
-                    onChange={(e) => setNome(e.target.value)}
-                />
-
-                <input
-                    type="email"
-                    placeholder="Inserisci email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-
-                <button type="submit">
-                    Invia
-                </button>
-
+                {children}
             </form>
-
-
-            {
-                userData && (
-
-                    <div className="card">
-
-                        <h3>Dati Inseriti</h3>
-
-                        <p>
-                            <strong>Nome:</strong> {userData.nome}
-                        </p>
-
-                        <p>
-                            <strong>Email:</strong> {userData.email}
-                        </p>
-
-                    </div>
-
-                )
-            }
 
         </div>
 
     );
 
 }
+
+
+function Input({ type, placeholder }) {
+
+    return (
+        <input
+            type={type}
+            placeholder={placeholder}
+        />
+    );
+
+}
+
+
+function Button() {
+
+    return (
+        <button type="submit">
+            Invia
+        </button>
+    );
+
+}
+
+
+Form.Input = Input;
+Form.Button = Button;
 
 export default Form;

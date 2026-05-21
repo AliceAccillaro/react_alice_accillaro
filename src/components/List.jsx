@@ -1,11 +1,25 @@
-function List({ names }) {
-  return (
-    <ul className="lista">
-      {names.map((name, index) => (
-        <li key={index}>{name}</li>
-      ))}
-    </ul>
-  )
+function List({ children }) {
+
+    return (
+
+        <ul className="list">
+            {children}
+        </ul>
+
+    );
+
 }
 
-export default List
+
+function Item({ name }) {
+
+    return (
+        <li>{name}</li>
+    );
+
+}
+
+
+List.Item = Item;
+
+export default List;
