@@ -1,12 +1,30 @@
-import {
-    useLoaderData,
-    Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
+import useFetch from "../hooks/useFetch";
 
 function Posts() {
 
-    const posts = useLoaderData();
+    const {
+        data: posts,
+        loading,
+        error
+    } = useFetch(
+        "https://jsonplaceholder.typicode.com/posts"
+    );
+
+
+    if (loading) {
+
+        return <h1>Loading...</h1>;
+
+    }
+
+
+    if (error) {
+
+        return <h1>Errore</h1>;
+
+    }
 
 
     return (
