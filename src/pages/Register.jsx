@@ -12,11 +12,9 @@ function Register() {
 
     const [password, setPassword] = useState("");
 
-
     const navigate = useNavigate();
 
     const { registerUser } = useAuth();
-
 
     function handleSubmit(e) {
 
@@ -28,47 +26,67 @@ function Register() {
         });
 
         navigate("/");
-
     }
-
 
     return (
 
-        <div className="page">
+        <div className="flex justify-center mt-20">
 
-            <h1>Register</h1>
+            <div className="card bg-base-100 w-[500px] shadow-2xl">
 
-            <form
-                className="auth-form"
-                onSubmit={handleSubmit}
-            >
+                <div className="card-body">
 
-                <input
-                    type="text"
-                    placeholder="Nome"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
+                    <h1 className="text-4xl font-bold text-center">
+                        Register
+                    </h1>
 
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+                    <form
+                        onSubmit={handleSubmit}
+                        className="flex flex-col gap-5 mt-5"
+                    >
 
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
+                        <input
+                            type="text"
+                            placeholder="Nome"
+                            className="input input-bordered w-full"
+                            value={name}
+                            onChange={(e) =>
+                                setName(e.target.value)
+                            }
+                        />
 
-                <button type="submit">
-                    Registrati
-                </button>
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            className="input input-bordered w-full"
+                            value={email}
+                            onChange={(e) =>
+                                setEmail(e.target.value)
+                            }
+                        />
 
-            </form>
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            className="input input-bordered w-full"
+                            value={password}
+                            onChange={(e) =>
+                                setPassword(e.target.value)
+                            }
+                        />
+
+                        <button
+                            className="btn btn-primary"
+                            type="submit"
+                        >
+                            Registrati
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
 
         </div>
 

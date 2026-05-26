@@ -4,37 +4,41 @@ function Counter() {
 
     const [count, setCount] = useState(0);
 
-
-    function incrementa() {
-
-        setCount((prev) => prev + 1);
-
-    }
-
-    function decrementa() {
-
-        setCount((prev) => prev - 1);
-
-    }
-
-
     return (
 
-        <div className="counter">
+        <div className="card bg-base-100 shadow-2xl w-full max-w-2xl mx-auto mb-20">
 
-            <h2>Contatore</h2>
+            <div className="card-body items-center text-center p-12">
 
-            <h1>{count}</h1>
+                <h2 className="text-5xl font-bold text-black mb-6">
+                    Contatore
+                </h2>
 
-            <div className="buttons">
+                <p className="text-9xl font-bold text-black mb-10">
+                    {count}
+                </p>
 
-                <button onClick={decrementa}>
-                    -
-                </button>
+                <div className="flex gap-6">
 
-                <button onClick={incrementa}>
-                    +
-                </button>
+                    <button
+                        className="btn btn-error btn-lg"
+                        onClick={() =>
+                            setCount((prev) => prev - 1)
+                        }
+                    >
+                        -
+                    </button>
+
+                    <button
+                        className="btn btn-success btn-lg"
+                        onClick={() =>
+                            setCount((prev) => prev + 1)
+                        }
+                    >
+                        +
+                    </button>
+
+                </div>
 
             </div>
 

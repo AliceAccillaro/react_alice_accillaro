@@ -6,57 +6,77 @@ function Navbar() {
 
     const { user } = useAuth();
 
-
     return (
 
-        <nav className="navbar">
+        <div className="navbar bg-neutral text-neutral-content px-8 py-4 shadow-lg">
 
-            <Link to="/">
-                Home
-            </Link>
+            <div className="flex-1 flex items-center gap-4">
 
-
-            {
-                user && (
-
-                    <Link to="/posts">
-                        Posts
-                    </Link>
-
-                )
-            }
+                <Link
+                    to="/"
+                    className="btn btn-ghost text-lg"
+                >
+                    Home
+                </Link>
 
 
-            {
-                !user && (
+                {
+                    user && (
 
-                    <>
-                        <Link to="/login">
-                            Login
+                        <Link
+                            to="/posts"
+                            className="btn btn-ghost text-lg"
+                        >
+                            Posts
                         </Link>
 
-                        <Link to="/register">
-                            Register
-                        </Link>
-                    </>
+                    )
+                }
 
-                )
-            }
+            </div>
 
 
-            {
-                user && (
+            <div className="flex items-center gap-4">
 
-                    <p className="welcome">
+                {
+                    !user && (
 
-                        Ciao {user.name}
+                        <>
+                            <Link
+                                to="/login"
+                                className="btn btn-outline btn-md"
+                            >
+                                Login
+                            </Link>
 
-                    </p>
 
-                )
-            }
+                            <Link
+                                to="/register"
+                                className="btn btn-primary btn-md"
+                            >
+                                Register
+                            </Link>
+                        </>
 
-        </nav>
+                    )
+                }
+
+
+                {
+                    user && (
+
+                        <p className="text-lg font-bold text-white">
+
+                            Ciao {user.name}
+
+                        </p>
+
+                    )
+                }
+
+            </div>
+
+        </div>
 
     );
 

@@ -13,20 +13,33 @@ function Home() {
 
     return (
 
-        <div className="page">
+        <div className="min-h-screen bg-base-200 text-black p-10">
 
-            <h2>Scroll: {scrollY}px</h2>
+            <h2 className="text-2xl font-bold mb-10">
+
+                Scroll: {scrollY}px
+
+            </h2>
+
 
             <Header />
 
+
             <List>
+
                 <List.Item name="Alice" />
+
                 <List.Item name="Marco" />
+
                 <List.Item name="Giulia" />
+
                 <List.Item name="Luca" />
+
             </List>
 
+
             <Counter />
+
 
             <Form>
                 <Form.Input
@@ -41,6 +54,7 @@ function Home() {
 
                 <Form.Button />
             </Form>
+
 
             <LoadingData />
 
