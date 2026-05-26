@@ -4,7 +4,11 @@ import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
 
-    const { user } = useAuth();
+    const {
+        user,
+        logout
+    } = useAuth();
+
 
     return (
 
@@ -49,7 +53,6 @@ function Navbar() {
                                 Login
                             </Link>
 
-
                             <Link
                                 to="/register"
                                 className="btn btn-primary btn-md"
@@ -65,11 +68,20 @@ function Navbar() {
                 {
                     user && (
 
-                        <p className="text-lg font-bold text-white">
+                        <>
+                            <p className="text-lg font-bold text-white">
 
-                            Ciao {user.name}
+                                Ciao {user.name}
 
-                        </p>
+                            </p>
+
+                            <button
+                                onClick={logout}
+                                className="btn btn-error"
+                            >
+                                Logout
+                            </button>
+                        </>
 
                     )
                 }

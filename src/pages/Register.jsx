@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 import { useNavigate } from "react-router-dom";
 
@@ -6,78 +6,144 @@ import { useAuth } from "../context/AuthContext";
 
 function Register() {
 
-    const [name, setName] = useState("");
-
-    const [email, setEmail] = useState("");
-
-    const [password, setPassword] = useState("");
-
     const navigate = useNavigate();
 
     const { registerUser } = useAuth();
 
-    function handleSubmit(e) {
 
-        e.preventDefault();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm();
+
+
+    function onSubmit(data) {
 
         registerUser({
-            name,
-            email
+            name: data.name,
+            email: data.email
         });
 
         navigate("/");
+
     }
+
 
     return (
 
-        <div className="flex justify-center mt-20">
+        <div className="min-h-screen flex justify-center items-start bg-base-200 pt-20">
 
-            <div className="card bg-base-100 w-[500px] shadow-2xl">
+            <div className="card bg-base-100 shadow-2xl w-full max-w-md">
 
                 <div className="card-body">
 
-                    <h1 className="text-4xl font-bold text-center">
+                    <h1 className="text-4xl font-bold text-center mb-6">
                         Register
                     </h1>
 
+
                     <form
-                        onSubmit={handleSubmit}
-                        className="flex flex-col gap-5 mt-5"
+                        onSubmit={handleSubmit(onSubmit)}
+                        className="flex flex-col gap-5"
                     >
 
-                        <input
-                            type="text"
-                            placeholder="Nome"
-                            className="input input-bordered w-full"
-                            value={name}
-                            onChange={(e) =>
-                                setName(e.target.value)
-                            }
-                        />
+                        <div>
 
-                        <input
-                            type="email"
-                            placeholder="Email"
-                            className="input input-bordered w-full"
-                            value={email}
-                            onChange={(e) =>
-                                setEmail(e.target.value)
-                            }
-                        />
+                            <input
+                                type="text"
+                                placeholder="Nome"
+                                className="input input-bordered w-full"
 
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            className="input input-bordered w-full"
-                            value={password}
-                            onChange={(e) =>
-                                setPassword(e.target.value)
+                                {...register("name", {
+                                    required: "Nome obbligatorio",
+                                    maxLength: {
+                                        value: 50,
+                                        message: "Massimo 50 caratteri"
+                                    }
+                                })}
+                            />
+
+                            {
+                                errors.name && (
+
+                                    <p className="text-error mt-1">
+
+                                        {errors.name.message}
+
+                                    </p>
+
+                                )
                             }
-                        />
+
+                        </div>
+
+
+                        <div>
+
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                className="input input-bordered w-full"
+
+                                {...register("email", {
+                                    required: "Email obbligatoria",
+                                    maxLength: {
+                                        value: 50,
+                                        message: "Massimo 50 caratteri"
+                                    }
+                                })}
+                            />
+
+                            {
+                                errors.email && (
+
+                                    <p className="text-error mt-1">
+
+                                        {errors.email.message}
+
+                                    </p>
+
+                                )
+                            }
+
+                        </div>
+
+
+                        <div>
+
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                className="input input-bordered w-full"
+
+                                {...register("password", {
+                                    required: "Password obbligatoria",
+                                    maxLength: {
+                                        value: 50,
+                                        message: "Massimo 50 caratteri"
+                                    }
+                                })}
+                            />
+
+                            {
+                                errors.password && (
+
+                                    <p className="text-error mt-1">
+
+                                        {errors.password.message}
+
+                                    </p>
+
+                                )
+                            }
+
+                        </div>
+
 
                         <button
-                            className="btn btn-primary"
                             type="submit"
+                            className="btn btn-primary"
                         >
                             Registrati
                         </button>

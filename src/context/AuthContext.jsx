@@ -4,9 +4,7 @@ import {
     useState
 } from "react";
 
-
 const AuthContext = createContext();
-
 
 function AuthProvider({ children }) {
 
@@ -20,12 +18,20 @@ function AuthProvider({ children }) {
     }
 
 
+    function logout() {
+
+        setUser(null);
+
+    }
+
+
     return (
 
         <AuthContext.Provider
             value={{
                 user,
-                registerUser
+                registerUser,
+                logout
             }}
         >
 
